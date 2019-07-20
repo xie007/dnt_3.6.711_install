@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Discuz!NT 用户使用说明书 - 升级指南</title><link rel="stylesheet" href="../css/discuz_guide.css">
+<base target="_blank">
+</head>
+
+<body leftmargin="0" rightmargin="0" topmargin="0">
+<script language="JavaScript" src="../js/header.js"></script>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<tr><td class="title">本栏目下相关链接</td></tr>
+<tr><td><br /><ul><script language="JavaScript" src="../js/upgrade.js"></script></ul><br /></td></tr>
+
+<tr><td class="title">升级注意事项（特别重要）</td></tr>
+<tr><td><br />
+<p><b>本文档用于帮助您将 Discuz!NT 升级为新的版本。在您开始升级 Discuz!NT 之前，请务必逐条仔细阅读以下的注意事项：</b>
+
+<p><ul>
+<li>升级之前，为了确保无误，强烈建议您备份原有数据，我们无法对升级前没有备份的用户提供任何技术支持
+<li>通常情况下，每次升级，Discuz!NT 都会将升级程序存放于Discuz!NT目录下的upgrade文件夹中。
+<li>大多数情况下，您升级到一个新的版本，模板文件也将随着改变。因此如果您使用了自定义的模板，使用新版本默认模板将其覆盖是必要的，原有模板请在后台禁止使用，如默认模板曾经修改请自行同步修改后再启用。
+<li>请不要将不同版本的 Discuz!NT 软件程序或模板混用，这样可能带来很多问题。除非您确切知道自己在做什么，及出现问题后如何处理
+<li>如果您的论坛使用了插件或 Hack，为老版本设计的插件或 Hack 可能不能在新版本上使用。我们只能提供有限的保证在升级后的版本中，
+Hack 数据字段仍被保留，而 Hack 的程序代码，一般需要做些改动才能用于新版本
+<li>论坛升级可能偶尔需要一点系统或数据库常识，因此最好事先在本地机器上调试无误后再实地进行升级
+<li>升级也可能需要手动更新缓存，在系统设置中点相应的选项即可
+<li>升级成功后，必须马上删除服务器上的upgrad文件夹，以避免可能的安全问题
+</ul>
+
+<p><b>再次提醒：请您不要急于升级的过程，请务必逐条仔细阅读以上的注意事项和以下的阶段升级说明，这样将大大提高升级的成功率，
+节约您的宝贵时间。</b>
+
+<br /><br /><br /></td></tr><tr><td class="title">阶段升级说明</td></tr>
+<tr><td><br />
+
+<p class="subtitle">从 Discuz!NT 2.X 升级到 Discuz!NT 3.X 
+<p><strong>本次升级需要使用升级程序./upgrade/index.aspx，并覆盖原有程序和模板。论坛升级后，请恢复默认风格或者根据新的模版进行调整</strong></p>
+
+<p><strong>本次升级只针对 SQL Server 版本的升级将在正式版提供升级后，相册和空间将暂时无法使用，正式版时将提供对相册和空间的升级。请正在使用相册和空间的用户慎重考虑，再做决定。</strong></p>
+<p><strong>郑重声明：此次升级会将清空禁止用户的IP（dnt_banned表），慎重升级</strong></p>
+<p>备份论坛数据库及相关文件，然后按照下面的步骤开始升级，论坛升级后，请恢复默认风格或者根据新的模版进行调整。</p>
+1、 上传安装包内的bin目录，覆盖空间上的bin目录<br />
+2、 上传安装包内除以下目录或文件以外的所有目录或文件（<b>下面列出的内容不要上传覆盖</b>）<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dnt.config 文件<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web.config 文件<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upload 目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;avatars 目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database 目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin\xml目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;config目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;javascript目录下goodscategories.js,locations.js,mymenu.js<br />
+3、 上传安装包内config目录下 detachtable_2005.config，detachtable_2000.config 文件；清空templates文件夹后再上传templates目录<br />
+4、 运行upgrade目录下的index.aspx。 <br />
+5、 按照操作提示，直至全部升级完毕（默认情况下无需人工干预）。如果升级中途失败，请根据提示调整数据库，重新进行升级 <br />
+6、 删除服务器上的升级程序文件夹upgrade<br /> 
+7、 登录到论坛系统后台，调整论坛设置，更新系统缓存，<b>重建分表存储过程</b>，重新设置邮件发送 ,重新设置聚合,重新生成模板。<br /><br />
+升级完成 <br />
+<br />
+<p><strong>可能遇到的问题：</strong></p>
+
+1 提示 404 错误，找不到文件。<br />
+<br />
+  可能是由于模板问题造成的，请修改 config 目录下 general.config 文件中 &lt;Templateid&gt; 配置节 如下： &lt;Templateid&gt;1&lt;/Templateid&gt;<br />
+></td></tr></table>
+
+<script language="JavaScript" src="../js/footer.js"></script>
+</body>
+</html>

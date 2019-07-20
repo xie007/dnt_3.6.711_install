@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Discuz!NT 用户使用说明书 - Discuz!NT 的Silverlight效果说明与部署方法</title><link rel="stylesheet" href="../css/discuz_guide.css">
+<base target="_blank">
+</head>
+
+<body leftmargin="0" rightmargin="0" topmargin="0">
+<script language="JavaScript" src="../js/header.js"></script>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<tr><td class="title">本栏目下相关链接</td></tr>
+<tr><td><br /><ul><script language="JavaScript" src="../js/install.js"></script></ul><br /></td></tr>
+
+<tr><td class="title">Discuz!NT 的Silverlight效果说明与部署方法</td></tr>
+<tr><td><br />
+<h2>部署：</h2>
+    虽然Silverlight具有跨平台跨浏览器的特性，但是在IIS服务器仍然需要做一些简单设置确保Silverlight正常工作(以下步骤需要服务器操作权限，如虚拟主机用户请联系主机商协调解决)：<br />
+  <br />
+    在IIS中点击站点属性，在“HTTP 头(HTTP Headers)”标签页中，点击“MIME 类型(MIME Types)”，点击“新建”，加入以下条目：<br />
+  <br />
+    扩展名：
+  <br />
+    .xap <br />
+    MIME类型：application/x-silverlight-app <br /><br />
+    扩展名：<br />
+    .xaml<br />
+    MIME类型：<br />
+    application/xaml+xml<br />
+<br />
+<br />
+    扩展名：<br />
+    .dll<br />
+    MIME类型：<br />
+    application/x-msdownload<br />
+<br />
+    添加方式如图：<br />
+<span class="STYLE2"><img src="../images/iis_mime.gif" width="659" height="463" /></span><br />
+<br />
+  <br />
+<span class="STYLE2">除以上两项外，以下同样为Silverlight可能需要的MIME类型，但在Discuz!NT 
+    2.0目前的效果中暂不需要，是否添加由您决定：<br />
+  <br />
+    扩展名：.manifest<br />
+    MIME类型：application/manifest<br />
+  <br />
+    扩展名：.application<br />
+    MIME类型：application/x-ms-application<br />
+  <br />
+    扩展名：.xbap<br />
+    MIME类型：application/x-ms-xbap<br />
+  <br />
+    扩展名：.deploy<br />
+    MIME类型：application/octet-stream<br />
+<br />
+    扩展名：.xps<br />
+    MIME类型：application/vnd.ms-xpsdocument</span></p>
+<p>
+    <br />
+    <br />
+    <br />
+    * 如果您有其它问题，欢迎访问Discuz!NT官方讨论区 <a href="http://nt.discuz.net" target="_blank">
+    http://nt.discuz.net</a><br />
+    <br />
+</p>
+</td></tr></table>
+
+<script language="JavaScript" src="../js/footer.js"></script>
+</body>
+</html>

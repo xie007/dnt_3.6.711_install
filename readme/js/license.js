@@ -1,0 +1,1 @@
+document.write("<li><a href=\"../html/license.htm\" target=\"_self\">最终用户授权协议 中文版</a>");

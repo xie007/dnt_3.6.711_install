@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Discuz!NT 用户使用说明书 - 安装指南</title><link rel="stylesheet" href="../css/discuz_guide.css">
+<base target="_blank">
+</head>
+
+<body leftmargin="0" rightmargin="0" topmargin="0">
+<script language="JavaScript" src="../js/header.js"></script>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<tr><td class="title">本栏目下相关链接</td></tr>
+<tr><td><br /><ul><script language="JavaScript" src="../js/install.js"></script></ul><br /></td></tr>
+
+<tr><td class="title">安装常见问题</td></tr>
+<tr><td><br />
+
+<ul>
+    <li><a href="#1-1" target="_self">1.我安装的时候总是提示我要我更改&lt;customErrors mode=&quot;Off&quot;/&gt;项</a></li>
+    <li><a href="#1-2" target="_self">2.[SqlException: 用户 'test' 登录失败。]</a></li>
+    <li><a href="#1-3" target="_self">3.为什么当我安装好论坛后首页是一片空白！</a></li>
+    <li><a href="#1-4" target="_self">4.我的论坛首页显示正常，但是其他页面都提示http:404错误。</a></li>
+    <li><a href="#1-5" target="_self">5.分析器错误信息: 未能加载类型&ldquo;Discuz.****.****&rdquo;。</a></li>
+    <li><a href="#1-6" target="_self">6.为什么提示对Windows系统文件夹下的Temp目录没有访问权限？</a></li>
+    <li><a href="#1-7" target="_self">7.为什么升级后我的 Discuz!NT 版本号没有变化？</a></li>
+    <li><a href="#1-8" target="_self">8.用户总是无法登录，为什么？</a></li>
+    <li><a href="#1-9" target="_self">9.我的论坛安装后所有页面都提示http:404错误。</a></li>
+    <li><a href="#1-10" target="_self">10.总是提示我网站根目录中没有正确的Dnt.config文件，我该怎么办？</a></li>
+</ul>
+<br />
+<br />
+<a id="#1-1" name="#1-1"></a><strong>我安装的时候总是提示我要我更改&lt;customErrors mode=&quot;Off&quot;/&gt;项</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这种情况是因为您开启了远程错误提示的屏蔽。找到您正在使用的web.config并将其中的&lt;customErrors mode=&quot;On&quot;/&gt;改为&lt;customErrors mode=&quot;Off&quot;/&gt;，并已UTF-8格式保存即可看到具体的错误提示。在您完成安装后我们建议虚拟主机的用户将此项更改为&quot;On&quot;，独立主机用户可以将此项设置为&quot;RemoteOnly&quot;方便在服务器上查看程序的错误。<br />
+<br />
+<a id="#1-2" name="#1-2"></a><strong>[SqlException: 用户 'test' 登录失败。]</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您所使用的SQL Server帐号权限不足，或者SQL Server拒绝远程连接。检查您Sql server帐号的权限，以及您dnt.config中数据库连接地址的设置，如果您的web服务器和SQL Server在同一台服务器上我们推荐您设置为&ldquo;(local)&rdquo;这样可以解决大部分无法连接SQL Server的问题。部分Windows Server 2003的用户SQL server2000拒绝链接可能由于没有及时安装SQL Server 2000的SP补丁引起的。建议您及时安装补丁。<br />
+<br />
+<a id="#1-3" name="#1-3"></a><strong>为什么当我安装好论坛后首页是一片空白！</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当出现此问题时，是因为您在dnt.config中设置的&lt;forumpath&gt;值不正确，导致程序无法正常的使用HttpModule来接管HTTP请求引导页面引起的。解决办法是将&lt;forumpath&gt;设置正确的值，需要注意的是在&lt;forumpath&gt;/&lt;/forumpath&gt;不能删除，如果您在虚拟目录中使用一定要在目录名后用&quot;/&quot;做结束。例如我有一个站点论坛使用http://www.123.com/bbs来访问,那么&lt;forumpath&gt;设置如下&lt;forumpath&gt;/bbs/&lt;/forumpath&gt;<br />
+<br />
+<a id="#1-4" name="#1-4"></a><strong>我的论坛首页显示正常，但是其他页面都提示http:404错误。</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请检查您的iis设置，在站点属性 -&gt; 主目录 -&gt; 配置 -&gt; 映射 -&gt; .aspx类型文件 -&gt; 编辑 -&gt; 取消确认文件是否存在项即可解决。虚拟主机的朋友可以联系主机提供商修改对应的配置。<br />
+<br />
+<a id="#1-5" name="#1-5"></a><strong>分析器错误信息: 未能加载类型&ldquo;Discuz.****.****&rdquo;。</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当程序出现此类提示时，请检查您bin目录下的dll文件是否正确并完整上传。对应的页面文件是否也做了相应的上传更新。<br />
+<br />
+<a id="#1-6" name="#1-6"></a><strong>为什么提示对Windows系统文件夹下的Temp目录没有访问权限？</strong><br />
+&nbsp; &nbsp; &nbsp; Discuz!NT 充分利用了 .Net 框架的特性，对系统配置进行序列化和反序列化操作，在执行效率上具有极大的提升，此操作需要在 Temp 目录生成临时文件(由 .Net 框架自动完成)，因此需要对 Temp 目录具有读写权限。<br />
+<br />
+<a id="#1-7" name="#1-7"></a><strong>为什么升级后我的 Discuz!NT 版本号没有变化？</strong><br />
+&nbsp; &nbsp; &nbsp; 请您在管理员后台进行生成模板操作，操作完成之后，您即可看到最新的版本信息。<br />
+<br />
+<a id="#1-8" name="#1-8"></a><strong>用户总是无法登录，为什么？</strong><br />
+&nbsp; &nbsp; &nbsp; 此问题经常出现在从动网<span class="smalltxt">(或LeadBBS和雪人论坛等)</span>论坛程序转换过来的论坛中，管理员可以在后台 Discuz!NT 选项-&gt;论坛功能-&gt;密码模式 中 选用 动网兼容模式，Discuz!NT 会在原用户第一次登录后自动将其密码扩展为 Discuz!NT 适用的密码。<br />
+<br />
+<a id="#1-9" name="#1-9"></a><strong>我的论坛安装后所有页面都提示http:404错误。</strong><br />
+&nbsp; &nbsp; &nbsp; 遇到此问题时请确保您的web.config中存在 &lt;httpModules&gt; &lt;add type=&quot;Discuz.Forum.HttpModule, Discuz.Forum&quot; name=&quot;HttpModule&quot; /&gt;&lt;/httpModules&gt;<br />
+<br />
+<a id="#1-10" name="#1-10"></a><strong>总是提示我网站根目录中没有正确的Dnt.config文件，我该怎么办？</strong><br />
+&nbsp; &nbsp; &nbsp; Dnt.config是必须存放于网站根目录中的，且应该以utf-8格式的编码进行保存。由于您使用FTP编辑等可能导致文件的编码变更，或者个别字符乱码。我们建议您在需要编辑的时候下载回本地进行编辑。编辑完成后并以utf-8编码进行保存后，通过FTP上传即可。<br />
+<br />
+</td></tr></table>
+
+<script language="JavaScript" src="../js/footer.js"></script>
+</body>
+</html>

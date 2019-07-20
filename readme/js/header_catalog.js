@@ -1,0 +1,12 @@
+document.write('<div id="header">');
+document.write('<h2>&nbsp; &nbsp; &nbsp; <a href="http://nt.discuz.net/" title="Discuz!NT"><img src="./images/logo.gif" alt="Discuz!NT" border="0" /></a></h2>');
+document.write('</div>');
+document.write('<br /><div class=\"menu\">');
+document.write("Discuz!NT 说明书栏目分类</td></tr><tr><td bgcolor=\"#F8F8F8\" align=\"center\">&nbsp;&nbsp;&nbsp;");
+document.write("[ <b><a href=\"./catalog.htm\" target=\"_self\">目录</a></a></b> ] :: ");
+document.write("[ <b><a href=\"./html/license.htm\" target=\"_self\">授权协议</a></a></b> ] :: ");
+document.write("[ <b><a href=\"./html/install.htm\" target=\"_self\">安装指南</a></a></b> ] :: ");
+document.write("[ <b><a href=\"./html/upgrade.htm\" target=\"_self\">升级指南</a></b> ] :: ");
+document.write("[ <b><a href=\"./html/using.htm\" target=\"_self\">使用常见问题</a></b> ] :: ");
+document.write('</div><br /><br />');
+document.write('<div class=\"mainbox\">');

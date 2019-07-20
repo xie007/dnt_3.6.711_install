@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Discuz!NT 用户使用说明书 - 安装指南</title><link rel="stylesheet" href="../css/discuz_guide.css">
+<base target="_blank">
+</head>
+
+<body leftmargin="0" rightmargin="0" topmargin="0">
+<script language="JavaScript" src="../js/header.js"></script>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<tr><td class="title">本栏目下相关链接</td></tr>
+<tr><td><br /><ul><script language="JavaScript" src="../js/install.js"></script></ul><br /></td></tr>
+
+<tr><td class="title">安装前的特别说明</td></tr>
+<tr><td><br />
+<ul>
+<li>在安装使用本软件前，请您详细阅读本说明书中的《<a href="../html/license.htm">授权协议</a>》文档，您的安装意味着您完全理解、同意并遵循
+授权协议的全部条款。<li>建议您在安装之前到 Discuz!NT 官方网站（<a href="http://www.discuznt.com">http://www.discuznt.com</a>）检查
+是否有最新的版本发布，我们推荐您始终安装和使用最新的 Discuz!NT 稳定版本。
+</ul>
+
+<br /></td></tr><tr><td class="title">安装详细流程</td></tr>
+<tr><td><br />
+
+<p class="subtitle">第 1 步：上传或解压程序包<ul>
+<p>使用 FTP 软件登录您的服务器，建立一个单独的目录，或选择合适的位置，确保存放在此位置的文件能够被 web 请求所访问到，并且该目录
+中具有执行 aspx 代码的权限。将 Discuz!NT 文件包的 ./upload_files 目录中的全部文件和目录结构上传到服务器（注意是上传 upload_files 目录中的文件
+和目录，而不是上传包含 upload_files 目录本身的目录和结构）；
+
+<p>或者使用Winrar,Winzip等软件解压程序包并存放到您的磁盘目录上。
+</ul>
+
+<p class="subtitle">第 2 步：设置目录权限，详尽目录权限设置请访问《<a href="http://nt.discuz.net/doc/default.aspx?cid=26">目录权限设置</a>》<ul>
+
+安装Discuz!NT时请使用NTFS磁盘格式，否则在安装中可能出现异常。
+
+<p>Windows Server 2000:请您在安装论坛前给论坛软件所在目录添加IIS来宾帐号（IUSR_Hostname）和Network Service组的读写修改权限。
+
+<p>Windows Server 2003:请您在安装论坛前给论坛软件所在目录添加IIS来宾帐号（IUSR_Hostname）和Network Service组的读写修改权限。 	
+<p>Windows XP:请您在安装论坛前给论坛软件所在目录添加Users组的读写修改权限。 
+<p>设置完毕目录权限后，我们需要在Windows控制面板 -> 管理工具 -> Internet 信息服务(IIS)管理器中进行IIS站点的建立及配置。详细说明可见文档中心的《<a href="http://nt.discuz.net/doc/default.aspx?cid=22">IIS站点建立</a>》
+
+<p>虚拟主机的朋友请联系虚拟主机商进行目录权限设置更改。
+</ul>
+
+<p class="subtitle">第 3 步：执行安装脚本<ul>
+
+<p>打开DNT.config，将&lt;forumpath&gt;/&lt;/forumpath&gt;修改为&lt;forumpath&gt;/[您的虚拟目录名称]/&lt;/forumpath&gt;。
+
+                <p>将论坛bin目录下所有dll移动到根目录下的bin目录，将DNT.config，web.config，config目录文件夹移动到站点根目录，如果根目录下已经有主站的web.config，则需要整合其中的配置项目使之不产生冲突。<p>请在浏览器中运行 http://您的域名/您的子目录名/install/index.aspx。
+
+<p>安装脚本会检查您的服务器目录权限，并给出相关提示。如果您在之前某一步骤操作有问题，通常安装脚本
+会发现并给以提示，请您根据提示再对安装过程进行检查。如果没有提示出问题，请您按照其中的说明，完成最后的安装。使用中的问题，请
+参考《<a href="../html/using.htm">使用指南</a>》。
+</ul>
+
+<p class="subtitle">第 4 步：运行快速设置向导<ul>
+
+<p><b>现在进行到最后一步，如果您了解整个论坛的设置则不必运行此向导。</b>
+
+<p>请在浏览器运行 http://您的域名/您的子目录名/index.aspx，打开首页后右上角点击[登陆]，用管理员帐号登陆后，左侧会有“系统设置”选项进入该选项后再输入一次管理员密码，即可进入论坛管理后台管理界面，选择“快捷操作”下的“快速设置向导”此向导将根据您论坛的类型批量设置相关参数，您可以在运行完后，再进入详细设置进行微调。
+
+
+
+<p><b>安装成功后，请通过 FTP 删除安装程序install文件夹，以避免被再次安装。</b>
+
+<p><b>详细安装方法请查看：<a href="http://nt.discuz.net/showtopic-128292.html">图文安装教程</a>&nbsp;|&nbsp;<a href="http://nt.discuz.net/showtopic-80830.html">视频安装教程</a>。</b>
+
+</td></tr></table>
+
+<script language="JavaScript" src="../js/footer.js"></script>
+</body>
+</html>
